@@ -10,10 +10,10 @@
     <bean id="dataSource"
             class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 
-        <property name="driverClassName" value="org.h2.Driver"/>
-        <property name="url" value="jdbc:h2:mem:testdb"/>
-        <property name="username" value="ss"/>
-        <property name="password" value=""/>
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/lessons"/>
+        <property name="username" value="root"/>
+        <property name="password" value="75Root75"/>
     </bean>
 
     <bean id="entityManagerFactory"
@@ -26,10 +26,10 @@
         </property>
         <property name="jpaProperties">
             <props>
-                <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.format_sql">false</prop>
-                <prop key="hibernate.hdm2ddl.auto">create</prop>
+                <prop key="hibernate.hdm2ddl.auto">update</prop>
             </props>
         </property>
     </bean>
@@ -37,5 +37,7 @@
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
+
+
 
 </beans>

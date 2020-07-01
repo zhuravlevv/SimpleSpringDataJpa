@@ -1,6 +1,7 @@
 package com.lessons.entity;
 
 import lombok.*;
+import org.springframework.stereotype.Controller;
 
 import javax.persistence.*;
 
@@ -8,16 +9,20 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "employee")
 public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column
     private String firstName;
 
+    @Column
     private String lastName;
 
+    @Column
     private Double salary;
 
     @ManyToOne
