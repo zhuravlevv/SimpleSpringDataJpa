@@ -11,7 +11,7 @@
             class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 
         <property name="driverClassName" value="org.h2.Driver"/>
-        <property name="url" value="jdbc:h2:~/test/"/>
+        <property name="url" value="jdbc:h2:mem:testdb"/>
         <property name="username" value="ss"/>
         <property name="password" value=""/>
     </bean>
@@ -19,7 +19,8 @@
     <bean id="entityManagerFactory"
             class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="persistenceUnitName" value="jpdData"/>
+        <property name="persistenceUnitName" value="VLAD"/>
+        <property name="packagesToScan" value="com.lessons.entity"/>
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
         </property>
