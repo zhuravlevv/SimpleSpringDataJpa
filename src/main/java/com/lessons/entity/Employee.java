@@ -5,7 +5,9 @@ import org.springframework.stereotype.Controller;
 
 import javax.persistence.*;
 
-@Data
+@Setter
+@Getter
+@EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -25,7 +27,7 @@ public class Employee {
     @Column
     private Double salary;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
     private Department department;
 
@@ -34,5 +36,16 @@ public class Employee {
         this.lastName = lastName;
         this.salary = salary;
         this.department = department;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", salary=" + salary +
+                ", department_id=" + department.getId() +
+                '}';
     }
 }
