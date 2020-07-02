@@ -36,4 +36,18 @@ public class Department {
                 ", employees=" + employees +
                 '}';
     }
+
+    public void addEmployee(Employee employee){
+        if(employee!=null) {
+            employees.add(employee);
+            employee.setDepartment(this);
+        }
+    }
+
+    public void removeEmployee(Employee employee){
+        if(employee!=null) {
+            employees.remove(employee);
+            employee.setDepartment(null);
+        }
+    }
 }
