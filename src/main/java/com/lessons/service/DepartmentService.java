@@ -1,7 +1,6 @@
 package com.lessons.service;
 
 import com.lessons.entity.Department;
-import com.lessons.entity.Employee;
 
 import java.util.List;
 
@@ -13,7 +12,7 @@ public interface DepartmentService {
 
     public Department update(Department newDepartment, Long id);
 
-    public Department add(Department employee);
+    public Department add(Department department);
 
     public void delete(Long id);
 }
