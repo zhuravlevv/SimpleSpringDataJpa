@@ -6,7 +6,7 @@
                         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
                         http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.0.xsd">
 
-    <jpa:repositories base-package="com.lessons.repository"/>
+
     <bean id="dataSource"
             class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 
@@ -39,6 +39,14 @@
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
 
+    <jpa:repositories base-package="com.lessons.repository"/>
 
+    <bean id="departmentService" class="com.lessons.service.impl.DepartmentServiceImpl">
+        <constructor-arg ref="departmentRepository"/>
+    </bean>
+
+    <bean id="employeeService" class="com.lessons.service.impl.EmployeeServiceImpl">
+        <constructor-arg ref="employeeRepository"/>
+    </bean>
 
 </beans>
