@@ -17,4 +17,6 @@ public interface EmployeeService {
     public Employee add(Employee employee);
 
     public void delete(Long id);
+
+    public void changeFirstName(String firstName, Long id);
 }

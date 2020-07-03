@@ -6,6 +6,7 @@ import com.lessons.service.EmployeeService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -48,5 +49,12 @@ public class EmployeeServiceImpl implements EmployeeService{
     @Override
     public void delete(Long id) {
         employeeRepository.delete(id);
+    }
+
+    @Override
+    @Transactional
+    public void changeFirstName(String firstName, Long id) {
+        Employee employee = employeeRepository.findOne(id);
+        employee.setFirstName(firstName);
     }
 }

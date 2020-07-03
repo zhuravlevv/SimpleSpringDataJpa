@@ -32,6 +32,8 @@ public class Main {
 //            System.out.println(department);
 //        }
 
+        employeeService.changeFirstName("Jobs", 1L);
+
         List<Employee> employees = employeeService.findByDepartmentId(1L);
         System.out.println(employees);
     }
