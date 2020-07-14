@@ -52,9 +52,9 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    @Transactional
     public void changeFirstName(String firstName, Long id) {
         Employee employee = employeeRepository.findOne(id);
         employee.setFirstName(firstName);
+        employeeRepository.save(employee);
     }
 }
